@@ -1,0 +1,4 @@
+EMAIL ticket=1 | New reply: okay i will check and after that i can update
+ticket=1 | reply=okay i will check and after that i can update
+ticket=2 | reply=werw
+EMAIL ticket=2 | New reply: werw

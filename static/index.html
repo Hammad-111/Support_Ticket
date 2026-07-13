@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support System — Test Console</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Support System — Test Console</h1>
+      <span id="user-badge" class="badge badge-offline">Not signed in</span>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Authentication</h2>
+        <div class="card-body auth-grid">
+          <div>
+            <label>Email address</label>
+            <input id="signup-email" type="email" placeholder="user@example.com" />
+            <label>Password</label>
+            <input id="signup-password" type="password" value="123456" />
+            <label>Role</label>
+            <select id="signup-role">
+              <option value="user">User</option>
+              <option value="agent">Agent</option>
+            </select>
+            <button id="btn-signup" class="btn-secondary btn-block">Create account</button>
+          </div>
+          <div>
+            <label>Email address</label>
+            <input id="login-email" type="email" placeholder="user@example.com" />
+            <label>Password</label>
+            <input id="login-password" type="password" value="123456" />
+            <div class="btn-row">
+              <button id="btn-login" class="btn-primary">Sign in</button>
+              <button id="btn-logout" class="btn-danger">Sign out</button>
+            </div>
+            <div id="user-info" class="user-info">Please sign in to continue</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Create ticket</h2>
+        <div class="card-body">
+          <label>Subject</label>
+          <input id="ticket-title" type="text" placeholder="Brief summary of the issue" />
+          <label>Description</label>
+          <textarea id="ticket-desc" rows="3" placeholder="Describe the issue in detail"></textarea>
+          <button id="btn-create-ticket" class="btn-primary btn-block">Submit ticket</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Ticket list <button id="btn-load-tickets" class="btn-mini">Refresh</button></h2>
+        <div id="ticket-list" class="card-body ticket-list"></div>
+      </section>
+
+      <section id="agent-card" class="card">
+        <h2>Agent panel</h2>
+        <div class="card-body">
+          <label>Ticket ID</label>
+          <input id="agent-ticket-id" type="number" placeholder="1" min="1" />
+          <label>Reply message</label>
+          <textarea id="agent-reply" rows="3" placeholder="Enter your response to the customer"></textarea>
+          <button id="btn-agent-reply" class="btn-primary btn-block">Send reply</button>
+          <label>Ticket status</label>
+          <div class="inline-row">
+            <select id="agent-status">
+              <option value="open">Open</option>
+              <option value="in_progress">In progress</option>
+              <option value="closed">Closed</option>
+            </select>
+            <button id="btn-agent-status" class="btn-secondary">Update</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>
+          Live updates
+          <span id="ws-status" class="badge badge-offline">Disconnected</span>
+        </h2>
+        <div class="card-body">
+          <label>Ticket ID</label>
+          <input id="ws-ticket-id" type="number" placeholder="1" min="1" />
+          <div class="btn-row">
+            <button id="btn-ws-connect" class="btn-primary">Connect</button>
+            <button id="btn-ws-disconnect" class="btn-secondary">Disconnect</button>
+          </div>
+          <div id="ws-log" class="log-box">Waiting for WebSocket messages…</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>API log <button id="btn-clear-log" class="btn-mini">Clear</button></h2>
+        <div id="api-log" class="card-body log-box">API responses will appear here…</div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
