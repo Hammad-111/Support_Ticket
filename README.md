@@ -182,7 +182,3 @@ Tests use an in-memory SQLite database. You do not need PostgreSQL or Redis runn
 - **429 Too Many Requests** — rate limit hit; wait a minute or restart Redis
 - **Celery tasks not working** — make sure Redis and the Celery worker are both running
 - **psql peer auth error** — use `psql -U postgres -h localhost`
-
----
-
-Student project for learning and demo purposes.
